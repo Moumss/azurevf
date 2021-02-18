@@ -143,7 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 #FRONTEND ADMIN / FRONTEND
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'data/static'),
+    os.path.join(BASE_DIR, 'carbonlight/static'),
     os.path.join(BASE_DIR, 'frontend/static')
 ]
 
