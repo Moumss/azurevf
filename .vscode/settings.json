@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "C:\\Users\\XC6071\\Desktop\\Carbon\\",
+    "python.linting.pylintArgs": [
+        "--load-plugins", "pylint_django", // Works fine
+        // "--django-settings-module", "project.settings" // Do not work anymore when adding this
+        ],
+}
