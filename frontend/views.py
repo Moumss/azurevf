@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.conf import settings
+from django.shortcuts import redirect, render
+import os
 
-# Create your views here.
+def index(request):
+
+    return render(request, 'frontend/index.html')
