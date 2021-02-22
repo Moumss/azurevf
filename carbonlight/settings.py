@@ -32,11 +32,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     
-    
-    'data',
-    'frontend',
+    'storages',
+
+    'rest_framework',
     'import_export',
-    'rest_framework',    
+    'corsheaders',
+    
+    'frontend',
+    'data',        
 ]
 
 MIDDLEWARE = [
@@ -88,7 +91,11 @@ DATABASES = {
     }
 }
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
 
 
 # Password validation
@@ -128,7 +135,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+
 
 #STORAGE
 
@@ -143,6 +150,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'carbonlight/static'),
     os.path.join(BASE_DIR, 'frontend/static')
 ]
+STATICFILES_STORAGE = ('whitenoise.storage.CompressedStaticFilesStorage')
 
 CORS_ORIGIN_ALLOW_ALL =  True
 IMPORT_EXPORT_USE_TRANSACTIONS = True
