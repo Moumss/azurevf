@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const fs = require('fs'); // to check if the file exists
 const path = require('path'); // to get the current path
 
+
 module.exports = (env) => {
 
   // Get the root path (assuming your webpack config is in the root of your project!)
