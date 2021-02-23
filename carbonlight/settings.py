@@ -23,7 +23,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,9 +32,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     
+    'storages',
+
     'rest_framework',
     'import_export',
-    
     
     'frontend',
     'data',        
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -134,21 +135,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+DEFAULT_FILE_STORAGE = 'data.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'data.custom_azure.AzureStaticStorage'
+
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
+
+AZURE_ACCOUNT_NAME = "stazwappaz001"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+
 
 #STORAGE
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 #FRONTEND ADMIN / FRONTEND
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'carbonlight/static'),
-    os.path.join(BASE_DIR, 'frontend/static')
-]
-STATICFILES_STORAGE = ('whitenoise.storage.CompressedStaticFilesStorage')
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'carbonlight/static'),
+#    os.path.join(BASE_DIR, 'frontend/static')
+#]
+#STATICFILES_STORAGE = ('whitenoise.storage.CompressedStaticFilesStorage')
 
 CORS_ORIGIN_ALLOW_ALL =  True
 IMPORT_EXPORT_USE_TRANSACTIONS = True

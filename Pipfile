@@ -12,6 +12,7 @@ pylint-django = "*"
 whitenoise = "*"
 pillow = "*"
 django-cors-headers = "*"
+django-storages = {extras = ["azure"], version = "*"}
 
 [dev-packages]
 
