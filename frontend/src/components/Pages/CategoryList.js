@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import './CategoryList.css'
 
-const BASE_URL ='./static/frontend/img/background_home.jpg'
+const BASE_URL ='/static/frontend/img/background_home.jpg'
 
 
 class CategoryList extends Component {
