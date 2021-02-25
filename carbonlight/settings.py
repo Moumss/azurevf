@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'storages',
-    'okta_oauth2.apps.OktaOauth2Config',
+
     'rest_framework',
     'import_export',
     
@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'okta_oauth2.middleware.OktaMiddleware',
 ]
 
 ROOT_URLCONF = 'carbonlight.urls'
@@ -115,23 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-AUTHENTICATION_BACKENDS = ("okta_oauth2.backend.OktaBackend",)
-
-OKTA_AUTH = {
-    "ORG_URL": "https://aximab2b.okta-emea.com/",
-    "ISSUER": "https://aximab2b.okta-emea.com/oauth2/default",
-    "CLIENT_ID": "0oa5c6nklsDwsB4pn0i7",
-    "CLIENT_SECRET": "5Drk0YAOwkC02Cvhi3RhXB1jzEAwJc5rz9Q-UTI0",
-    "SCOPES": "openid profile email offline_access",
-    "REDIRECT_URI": "https://wappaz001.azurewebsites.net/accounts/oauth2/callback",
-    "LOGIN_REDIRECT_URL": "/", # default
-    "CACHE_PREFIX": "okta", # default
-    "CACHE_ALIAS": "default", # default
-    "PUBLIC_NAMED_URLS": (), # default
-    "PUBLIC_URLS": (), # default
-}
-
 
 
 # Internationalization

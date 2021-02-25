@@ -6,7 +6,6 @@ from django.views.generic import TemplateView
 import os
 
 urlpatterns = [
-    path('accounts/', include(("okta_oauth2.urls", "okta_oauth2"), namespace="okta_oauth2")),
     path('', include('frontend.urls')),
     path('admin/', admin.site.urls, name='admin'),
     path('api/v1/', include('data.urls'), name='data'),
