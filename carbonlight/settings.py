@@ -119,11 +119,11 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = ("okta_oauth2.backend.OktaBackend",)
 
 OKTA_AUTH = {
-    "ORG_URL": "https://your-org.okta.com/",
-    "ISSUER": "https://your-org.okta.com/oauth2/default",
-    "CLIENT_ID": "yourclientid",
-    "CLIENT_SECRET": "yourclientsecret",
-    "SCOPES": "openid profile email offline_access", # this is the default and can be omitted
+    "ORG_URL": "https://aximab2b.okta-emea.com/",
+    "ISSUER": "https://aximab2b.okta-emea.com/oauth2/default",
+    "CLIENT_ID": "0oa5c6nklsDwsB4pn0i7",
+    "CLIENT_SECRET": "5Drk0YAOwkC02Cvhi3RhXB1jzEAwJc5rz9Q-UTI0",
+    "SCOPES": "openid profile email offline_access",
     "REDIRECT_URI": "http://localhost:8000/accounts/oauth2/callback",
     "LOGIN_REDIRECT_URL": "/", # default
     "CACHE_PREFIX": "okta", # default
@@ -131,6 +131,8 @@ OKTA_AUTH = {
     "PUBLIC_NAMED_URLS": (), # default
     "PUBLIC_URLS": (), # default
 }
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
