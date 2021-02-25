@@ -32,4 +32,4 @@ jobs:
       with:
         app-name: 'wappaz001'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_13aa34bfec7440838192a95d3df22519 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_af7abc90ee8643009cbf42f2a09a352c }}
