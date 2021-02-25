@@ -124,7 +124,7 @@ OKTA_AUTH = {
     "CLIENT_ID": "0oa5c6nklsDwsB4pn0i7",
     "CLIENT_SECRET": "5Drk0YAOwkC02Cvhi3RhXB1jzEAwJc5rz9Q-UTI0",
     "SCOPES": "openid profile email offline_access",
-    "REDIRECT_URI": "http://localhost:8000/accounts/oauth2/callback",
+    "REDIRECT_URI": "https://wappaz001.azurewebsites.net/accounts/oauth2/callback",
     "LOGIN_REDIRECT_URL": "/", # default
     "CACHE_PREFIX": "okta", # default
     "CACHE_ALIAS": "default", # default
