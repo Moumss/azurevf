@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'storages',
-
+    'okta_oauth2.apps.OktaOauth2Config',
     'rest_framework',
     'import_export',
     
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'okta_oauth2.middleware.OktaMiddleware',
 ]
 
 ROOT_URLCONF = 'carbonlight.urls'
@@ -115,7 +116,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = ("okta_oauth2.backend.OktaBackend",)
 
+OKTA_AUTH = {
+    "ORG_URL": "https://your-org.okta.com/",
+    "ISSUER": "https://your-org.okta.com/oauth2/default",
+    "CLIENT_ID": "yourclientid",
+    "CLIENT_SECRET": "yourclientsecret",
+    "SCOPES": "openid profile email offline_access", # this is the default and can be omitted
+    "REDIRECT_URI": "http://localhost:8000/accounts/oauth2/callback",
+    "LOGIN_REDIRECT_URL": "/", # default
+    "CACHE_PREFIX": "okta", # default
+    "CACHE_ALIAS": "default", # default
+    "PUBLIC_NAMED_URLS": (), # default
+    "PUBLIC_URLS": (), # default
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
